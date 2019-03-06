@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: 85e5868e65260b548adeccae44cab9e2
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armature
+    100004: Bicep_l
+    100006: Bicep_r_001
+    100008: Bone_001
+    100010: CollarBone
+    100012: Cube
+    100014: FingerBone_l
+    100016: FingerBone_r_001
+    100018: Fingertip_l
+    100020: Fingertip_r_001
+    100022: Fingertip_r_002
+    100024: Foot_l
+    100026: Foot_r_001
+    100028: Forearm_l
+    100030: Forearm_r_001
+    100032: HandBone_l
+    100034: HandBone_r_001
+    100036: HandTip_l
+    100038: HandTip_r_001
+    100040: HandTip_r_002
+    100042: Head
+    100044: Leg_l
+    100046: Leg_r_001
+    100048: Neck
+    100050: Spine
+    100052: Thigh_l
+    100054: Thigh_r_001
+    100056: Thumb_l
+    100058: Thumb_r_001
+    100060: Thumb_r_002
+    100062: ThumbBone_l
+    100064: ThumbBone_r_001
+    400000: //RootNode
+    400002: Armature
+    400004: Bicep_l
+    400006: Bicep_r_001
+    400008: Bone_001
+    400010: CollarBone
+    400012: Cube
+    400014: FingerBone_l
+    400016: FingerBone_r_001
+    400018: Fingertip_l
+    400020: Fingertip_r_001
+    400022: Fingertip_r_002
+    400024: Foot_l
+    400026: Foot_r_001
+    400028: Forearm_l
+    400030: Forearm_r_001
+    400032: HandBone_l
+    400034: HandBone_r_001
+    400036: HandTip_l
+    400038: HandTip_r_001
+    400040: HandTip_r_002
+    400042: Head
+    400044: Leg_l
+    400046: Leg_r_001
+    400048: Neck
+    400050: Spine
+    400052: Thigh_l
+    400054: Thigh_r_001
+    400056: Thumb_l
+    400058: Thumb_r_001
+    400060: Thumb_r_002
+    400062: ThumbBone_l
+    400064: ThumbBone_r_001
+    2100000: Red
+    2100002: White
+    2100004: Brown
+    2100006: Black
+    2100008: Yellow
+    2300000: //RootNode
+    2300002: Cube
+    3300000: //RootNode
+    3300002: Cube
+    4300000: Cube
+    7400000: Default Take
+    7400002: AnimeRun
+    7400004: ArmatureAction_001
+    7400006: Idle
+    7400008: Run
+    9500000: //RootNode
+    13700000: Cube
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
