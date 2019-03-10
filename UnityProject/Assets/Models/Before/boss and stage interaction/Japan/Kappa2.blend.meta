@@ -1,43 +1,20 @@
 fileFormatVersion: 2
-guid: e86656581e856a343a508fd192e1a051
+guid: 9aa180d19db7cfd44a3b07a574f779a3
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cube
-    100004: Cylinder_002
-    100006: Plane
-    100008: Plane_001
     400000: //RootNode
-    400002: Cube
-    400004: Cylinder_002
-    400006: Plane
-    400008: Plane_001
-    2100000: Material
-    2100002: unnamed
-    2100004: Black
-    2100006: White
-    2100008: Fur
-    2100010: Pink
-    2100012: Silver
-    2100014: Red
+    2100000: Skin
+    2100002: Leaf_Green
+    2100004: Beak
+    2100006: Black
+    2100008: Shell
     2300000: //RootNode
-    2300002: Cube
-    2300004: Cylinder_002
-    2300006: Plane
-    2300008: Plane_001
     3300000: //RootNode
-    3300002: Cube
-    3300004: Cylinder_002
-    3300006: Plane
-    3300008: Plane_001
-    4300000: Cube
-    4300002: Plane_001
-    4300004: Cylinder_002
-    4300006: Plane
+    4300000: Plane
     7400000: Default Take
     9500000: //RootNode
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

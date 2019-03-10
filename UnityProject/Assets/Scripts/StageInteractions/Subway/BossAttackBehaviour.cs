@@ -19,7 +19,7 @@ public class BossAttackBehaviour : MonoBehaviour {
     public void SetupGameObject()
     {
         bananaDropper.SpawnFromPool("banana", spawnPos.position
-          , Quaternion.Euler(dir));
+          , Quaternion.Euler(-transform.forward));
     }
 	
 
