@@ -28,6 +28,11 @@ ModelImporter:
     100044: Bone_019
     100046: Bone_020
     100048: Plane
+    100050: Bone_021
+    100052: Cylinder
+    100054: Body
+    100056: Sax
+    100058: Tommy_Gun
     400000: //RootNode
     400002: Plane_001
     400004: Armature
@@ -53,6 +58,11 @@ ModelImporter:
     400044: Bone_019
     400046: Bone_020
     400048: Plane
+    400050: Bone_021
+    400052: Cylinder
+    400054: Body
+    400056: Sax
+    400058: Tommy_Gun
     2100000: Material
     2100002: Nose
     2100004: Ears
@@ -61,19 +71,37 @@ ModelImporter:
     2100010: Jeans
     2100012: BeltBuckel
     2100014: Bandana
+    2100016: Brown_Wood_001
+    2100018: Base_Silver_001
+    2100020: Black_001
+    2100022: DarkGrey_001
+    2100024: Gold_002
     2300000: //RootNode
     2300002: Plane_001
     3300000: //RootNode
     3300002: Plane_001
     4300000: Plane
     4300002: Plane_001
+    4300004: Cylinder
+    4300006: Body
+    4300008: Tommy_Gun
+    4300010: Sax
     7400000: Default Take
     7400002: Rowing
     7400004: Throwing_001
     7400006: JumpAndGrab
     7400008: Idle
+    7400010: Wave_Shooting
+    7400012: Straight_Shooting
+    7400014: Straight_Shooting (1)
+    7400016: Play_Sax
     9500000: //RootNode
     13700000: Plane
+    13700002: Plane_001
+    13700004: Cylinder
+    13700006: Body
+    13700008: Sax
+    13700010: Tommy_Gun
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -219,6 +247,90 @@ ModelImporter:
       takeName: Idle
       firstFrame: -1
       lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wave_Shooting
+      takeName: Wave_Shooting
+      firstFrame: -1
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Straight_Shooting
+      takeName: Straight_Shooting
+      firstFrame: -1
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Play_Sax
+      takeName: Play_Sax
+      firstFrame: -1
+      lastFrame: 119
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
