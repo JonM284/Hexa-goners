@@ -2908,7 +2908,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.98
+  m_Intensity: 1
   m_Range: 43.27
   m_SpotAngle: 48
   m_CookieSize: 10
@@ -5867,7 +5867,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.98
+  m_Intensity: 1
   m_Range: 43.27
   m_SpotAngle: 48
   m_CookieSize: 10
@@ -13970,13 +13970,13 @@ Prefab:
         type: 2}
       propertyPath: profile
       value: 
-      objectReference: {fileID: 11400000, guid: 1c7b9e53880f74442b86512d0b7cb15a,
+      objectReference: {fileID: 11400000, guid: a4888c068bcb8904bb2eabfc19b7721a,
         type: 2}
     - target: {fileID: 114758837718255938, guid: 295ff9389e10b574985eec96c9a196c0,
         type: 2}
       propertyPath: currentProfile
       value: 
-      objectReference: {fileID: 11400000, guid: 1c7b9e53880f74442b86512d0b7cb15a,
+      objectReference: {fileID: 11400000, guid: a4888c068bcb8904bb2eabfc19b7721a,
         type: 2}
     - target: {fileID: 114344841924516826, guid: 295ff9389e10b574985eec96c9a196c0,
         type: 2}
@@ -18522,6 +18522,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: ffc71c990cead2d469793538879d743f, type: 2}
+    - target: {fileID: 100056, guid: b10435b95b5fc634eb79fa241f3381e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b10435b95b5fc634eb79fa241f3381e1, type: 3}
   m_IsPrefabParent: 0
@@ -27111,7 +27115,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4.54
+  m_Intensity: 5
   m_Range: 21.33
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -39860,7 +39864,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.98
+  m_Intensity: 1
   m_Range: 43.27
   m_SpotAngle: 48
   m_CookieSize: 10
@@ -42830,7 +42834,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.98
+  m_Intensity: 1
   m_Range: 43.27
   m_SpotAngle: 48
   m_CookieSize: 10

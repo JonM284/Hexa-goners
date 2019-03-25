@@ -70,11 +70,13 @@ public class Manager : MonoBehaviour
 
     private GameObject storedSelected;
 
+    public static Manager manager_Instance;
+
 
 
     void Awake()
     {
-        
+        manager_Instance = this;   
         ScoreBoard.SetActive(false);
         
     }

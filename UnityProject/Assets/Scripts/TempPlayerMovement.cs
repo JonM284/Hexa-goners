@@ -8,7 +8,7 @@ using UnityEditor;
 
 
 public class TempPlayerMovement : MonoBehaviour {
-    // all code created in this game was created for the (Currently named) game "H or Hexagon" by Jonathan Mendez before and after 10_12_2018
+    // all code created in this game was created for the (Currently named) game "Hexa-goners" by Jonathan Mendez before and after 10_12_2018
     private Animator anim;
     private Vector3 velocity;
     private Rigidbody rb;
@@ -56,8 +56,12 @@ public class TempPlayerMovement : MonoBehaviour {
     private Vector3 originalShockScale, original_ShockIndicator_Scale;
     public AudioClip[] clips;
     private AudioSource source;
+    //hat stuff here
+    public GameObject myHat;
 
-    
+    public enum Player_Status {Player, COM }
+    public Player_Status player_type;
+    public List<Transform> map_Bounds;
 
     void Awake()
     {
@@ -68,11 +72,14 @@ public class TempPlayerMovement : MonoBehaviour {
         StunParticles.Stop();
         chargingParticles.Stop();
         SpawningParticles.gameObject.SetActive(false);
+        snoozeParticles.gameObject.SetActive(false);
         for (int i = 0; i < 3; i++)
         {
             myPlayerMaterials[i] = myMeshRenderer.GetComponent<SkinnedMeshRenderer>().materials[i];
             originalMaterialsColor[i] = myMeshRenderer.GetComponent<SkinnedMeshRenderer>().materials[i].color;
         }
+        
+        
         myPlayer = ReInput.players.GetPlayer(playerNum-1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         CheckController(myPlayer);
@@ -107,75 +114,90 @@ public class TempPlayerMovement : MonoBehaviour {
         deathExplosion[0].gameObject.SetActive(false);
         originalAOE_Attack_Timer = AOE_Attack_Timer;
         original_Fall_Timer = fall_timer;
-        
+        for (int i = 0; i < 4; i++)
+        {
+            map_Bounds[i] = Manager.manager_Instance.Map_Spawn_Bounds[i];
+            map_Bounds.Add(map_Bounds[i]);
+        }
+        map_Bounds.Remove(map_Bounds[map_Bounds.Count-1]);
 
     }
 
     void FixedUpdate()
     {
-        //only call movement when the inputs are something other than zero
-        if (horizontalInput != 0 || verticalInput != 0 && !hasStartedFalling && isAlive)
-        {
-            Movement();
+        if (player_type == Player_Status.Player) {
+            //only call movement when the inputs are something other than zero
+            if (horizontalInput != 0 || verticalInput != 0 && !hasStartedFalling && isAlive)
+            {
+                Movement();
+            }
         }
     }
 
     // Update is called once per frame
     void Update () {
-        horizontalInput = myPlayer.GetAxisRaw("Horizontal");
-        verticalInput = myPlayer.GetAxisRaw("Vertical");
+
+        if (player_type == Player_Status.Player) {
+            horizontalInput = myPlayer.GetAxisRaw("Horizontal");
+            verticalInput = myPlayer.GetAxisRaw("Vertical");
 
 
-        if (myPlayer.GetButtonDown("Pause") && !Manager.isPausedMenu)
-        {
-            Manager.isPausedMenu = true;
-        }else if (myPlayer.GetButtonDown("Pause") && Manager.isPausedMenu)
-        {
-            Manager.isPausedMenu = false;
+            if (myPlayer.GetButtonDown("Pause") && !Manager.isPausedMenu)
+            {
+                Manager.isPausedMenu = true;
+            } else if (myPlayer.GetButtonDown("Pause") && Manager.isPausedMenu)
+            {
+                Manager.isPausedMenu = false;
+            }
+            /////////////THIS IS FOR BASIC ATTACKS
+            if (!Manager.isPausedMenu) {
+                if (myPlayer.GetButtonDown("Attack") && !isAttacking && canAttack && stamina >= 25f)
+                {
+                    GameObject newWave = Instantiate(myShockWave, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z),
+                        this.transform.rotation) as GameObject;
+                    newWave.GetComponent<ShockWaveBehaviour>().playerNum = this.playerNum;
+                    newWave.GetComponent<ShockWaveBehaviour>().myPlayersColor = this.originalMaterialsColor[0];
+                    StopCoroutine(Dash());
+                    isDashing = false;
+                    stamina -= 25f;
+                    StartCoroutine(Attack());
+                } else if (myPlayer.GetButtonDown("Attack") && (!canAttack || stamina < 25f))
+                {
+                    StartCoroutine(resetWrongImg());
+                }
+
+                //place new attack/ movement mechanic here
+                /*if (myPlayer.GetButtonDown("Melee") && isAlive && stamina < maxStamina_amt && !hasMaxed_out && canRecharge && !isPaused && !isStunned)
+                {
+                    StartCoroutine(Melee());
+                }*/
+
+                /////////////THIS IS FOR DASHING
+                if (myPlayer.GetButtonDown("Dash") && !isDashing && !isAttacking && canDash && stamina >= 20f)
+                {
+                    StopCoroutine(Attack());
+                    isAttacking = false;
+                    stamina -= 20f;
+                    StartCoroutine(Dash());
+                } else if (myPlayer.GetButtonDown("Dash") && (!canDash || stamina < 15f))
+                {
+                    StartCoroutine(resetWrongImg());
+                }
+                /////////////THIS IS FOR BLOCKING
+                if (myPlayer.GetButtonDown("Block") && canBlock)
+                {
+                    StartCoroutine(Block());
+                } else if (myPlayer.GetButtonDown("Block") && !canBlock)
+                {
+                    StartCoroutine(resetWrongImg());
+                }
+
+            }
         }
-        /////////////THIS IS FOR BASIC ATTACKS
-        if (!Manager.isPausedMenu) {
-            if (myPlayer.GetButtonDown("Attack") && !isAttacking && canAttack && stamina >= 25f)
-            {
-                GameObject newWave = Instantiate(myShockWave, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z),
-                    this.transform.rotation) as GameObject;
-                newWave.GetComponent<ShockWaveBehaviour>().playerNum = this.playerNum;
-                newWave.GetComponent<ShockWaveBehaviour>().myPlayersColor = this.originalMaterialsColor[0];
-                StopCoroutine(Dash());
-                isDashing = false;
-                stamina -= 25f;
-                StartCoroutine(Attack());
-            } else if (myPlayer.GetButtonDown("Attack") && (!canAttack || stamina < 25f))
-            {
-                StartCoroutine(resetWrongImg());
-            }
 
-            //place new attack/ movement mechanic here
-            if (myPlayer.GetButtonDown("Melee") && isAlive && stamina < maxStamina_amt && !hasMaxed_out && canRecharge && !isPaused && !isStunned)
-            {
-                StartCoroutine(Melee());
-            }
+        if (player_type == Player_Status.COM)
+        {
 
-            /////////////THIS IS FOR DASHING
-            if (myPlayer.GetButtonDown("Dash") && !isDashing && !isAttacking && canDash && stamina >= 20f)
-            {
-                StopCoroutine(Attack());
-                isAttacking = false;
-                stamina -= 20f;
-                StartCoroutine(Dash());
-            } else if (myPlayer.GetButtonDown("Dash") && (!canDash || stamina < 15f))
-            {
-                StartCoroutine(resetWrongImg());
-            }
-            /////////////THIS IS FOR BLOCKING
-            if (myPlayer.GetButtonDown("Block") && canBlock)
-            {
-                StartCoroutine(Block());
-            } else if (myPlayer.GetButtonDown("Block") && !canBlock)
-            {
-                StartCoroutine(resetWrongImg());
-            }
-            
         }
         //////////// check to see if touching ground
         RaycastHit hit;
@@ -480,6 +502,7 @@ public class TempPlayerMovement : MonoBehaviour {
         canTakeHit = false;
         isMeleeing = true;
         canRecharge = false;
+        myHat.SetActive(false);
         yield return new WaitForSeconds(0.35f);
         canTakeHit = true;
         isMeleeing = false;  
@@ -487,10 +510,13 @@ public class TempPlayerMovement : MonoBehaviour {
         canRecharge = true;
         block_Col.enabled = false;
         yield return new WaitForSeconds(2.7f);
-        StunParticles.Play();
+        //StunParticles.Play();
+        chargingParticles.Play();
         canBlock = true;
+        myHat.SetActive(true);
         yield return new WaitForSeconds(0.5f);
-        StunParticles.Stop();
+        chargingParticles.Stop();
+        //StunParticles.Stop();
     }
 
      IEnumerator Melee()
@@ -500,6 +526,7 @@ public class TempPlayerMovement : MonoBehaviour {
         canDash = false;
         canAttack = false;
         canBlock = false;
+        
         speed = 0;
         yield return new WaitUntil(() => myPlayer.GetButtonUp("Melee") || isStunned || isPaused || !isAlive || stamina > maxStamina_amt);
         if (!isStunned && !isPaused && isAlive) {
@@ -509,6 +536,7 @@ public class TempPlayerMovement : MonoBehaviour {
             canAttack = true;
             canBlock = true;
             speed = InitialSpeed;
+            
         }else
         {
             Is_holding_Charge = false;
@@ -516,6 +544,7 @@ public class TempPlayerMovement : MonoBehaviour {
             canDash = false;
             canAttack = false;
             canBlock = false;
+            myHat.SetActive(false);
             speed = 0;
         }
 
@@ -584,7 +613,7 @@ public class TempPlayerMovement : MonoBehaviour {
         canDash = false;
         canRecharge = false;
         if (isAlive) {
-            snoozeParticles.Play();
+            snoozeParticles.gameObject.SetActive(true);
         }
         yield return new WaitForSeconds(1.5f);
         speed = InitialSpeed;
@@ -596,7 +625,7 @@ public class TempPlayerMovement : MonoBehaviour {
         canBlock = true;
         canDash = true;
         canRecharge = true;
-        snoozeParticles.Stop();
+        snoozeParticles.gameObject.SetActive(false);
     }
 
     
@@ -679,6 +708,13 @@ public class TempPlayerMovement : MonoBehaviour {
         ExplosionParticles.Stop();
         StunParticles.Stop();
         deathParticles.Stop();
+        
+    }
+    /// <summary>
+    /// things after this point and before DoAnimations() are for the AI
+    /// </summary>
+    void AI_Movement()
+    {
         
     }
 

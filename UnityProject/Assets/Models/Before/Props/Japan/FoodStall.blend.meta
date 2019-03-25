@@ -6,6 +6,10 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: Material
+    2100002: Other_Mat_Material
+    2100004: Mat_Material
+    2100006: Silver
+    2100008: Black
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
