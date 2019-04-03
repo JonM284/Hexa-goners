@@ -13,9 +13,10 @@ public class ShockWaveBehaviour : MonoBehaviour {
     public Color myPlayersColor;
     public AudioSource reversalSound;
     public ParticleSystem blockParticles, sparkParticles;
+    private Manager game_Manager;
 	// Use this for initialization
 	void Start () {
-        
+        game_Manager = Manager.manager_Instance;
         GetComponent<Collider>().enabled = false;
         original_Fall_Timer = fall_timer;
         StartCoroutine(turnOnCollider());
@@ -67,6 +68,7 @@ public class ShockWaveBehaviour : MonoBehaviour {
 
     IEnumerator turnAround()
     {
+        game_Manager.GetComponent<Manager>().Reverse_Stat[playerNum - 1]++;
         reversalSound.Play();
         var main = blockParticles.main;
         main.startColor = myPlayersColor;
@@ -108,6 +110,8 @@ public class ShockWaveBehaviour : MonoBehaviour {
             sparkParticles.Play();
             Destroy(gameObject, 0.6f);
         }
+
+        
     }
 
      void OnTriggerStay(Collider other)

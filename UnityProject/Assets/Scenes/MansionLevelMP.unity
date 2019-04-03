@@ -12601,11 +12601,11 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1724902505}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 0.6516999, g: 0.895803, b: 0.9528302, a: 1}
-  m_Intensity: 0.48
+  m_Intensity: 6.77
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10

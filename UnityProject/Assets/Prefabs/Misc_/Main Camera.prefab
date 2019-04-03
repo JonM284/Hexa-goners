@@ -109,7 +109,7 @@ MonoBehaviour:
   Confetti: {fileID: 0}
   timerText: {fileID: 0}
   winnerBorderImage: {fileID: 0}
-  scoreTimerModifier: 1
+  scoreTimerModifier: 1.5
   scoreBoardOffset: 0.009
   player1Slider: {fileID: 0}
   player2Slider: {fileID: 0}
@@ -138,6 +138,14 @@ MonoBehaviour:
   first_Select_EndG: {fileID: 0}
   first_Select_PauseM: {fileID: 0}
   system: {fileID: 0}
+  Reverse_Stat: 00000000000000000000000000000000
+  Attack_Stat: 00000000000000000000000000000000
+  Block_Stat: 00000000000000000000000000000000
+  player_Stat_Panels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114473697084647824
 MonoBehaviour:
   m_ObjectHideFlags: 1

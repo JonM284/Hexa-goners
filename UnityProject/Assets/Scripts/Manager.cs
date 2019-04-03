@@ -65,7 +65,11 @@ public class Manager : MonoBehaviour
     BombDropper bombDropper;
     List<int> playerNumAllowedToDrop;
 
+    public int[] Reverse_Stat;
+    public int[] Attack_Stat;
+    public int[] Block_Stat;
 
+    public GameObject[] player_Stat_Panels;
     //this is for the in scene pause menu
 
     private GameObject storedSelected;
@@ -181,15 +185,6 @@ public class Manager : MonoBehaviour
             
         }
 
-
-        
-
-    }
-
-
-
-    private void LateUpdate()
-    {
         if (isPausedMenu || game_Has_Ended) {
             if (system.currentSelectedGameObject != system.firstSelectedGameObject)
             {
@@ -203,6 +198,15 @@ public class Manager : MonoBehaviour
                 }
             }
         }
+        
+
+    }
+
+
+
+    private void LateUpdate()
+    {
+        
     }
 
     private void OnLevelWasLoaded(int level)
@@ -441,9 +445,13 @@ public class Manager : MonoBehaviour
         yield return new WaitForSeconds(8f);
         players[winnerNum].GetComponent<TempPlayerMovement>().PausePlayer();
         system.SetSelectedGameObject(first_Select_EndG, new BaseEventData(system));
+        
         endGameMenu.SetActive(true);
         pauseMenu.SetActive(false);
-        
+        /*for (int i = 0; i < player_Stat_Panels.Length; i++)
+        {
+            player_Stat_Panels[i].GetComponent<Stats_Manager>().Do_Stats();
+        }*/
 
     }
 

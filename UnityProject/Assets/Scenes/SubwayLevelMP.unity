@@ -5109,6 +5109,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114755159157810256, guid: 32a90747939a40447acde57d123b5764,
+        type: 2}
+      propertyPath: map_Bounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4002616914685602, guid: 32a90747939a40447acde57d123b5764, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.32
@@ -12303,6 +12308,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114130951886535356, guid: b5ac40b2e68c13842a782e289ac42ded,
+        type: 2}
+      propertyPath: map_Bounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4344864654238686, guid: b5ac40b2e68c13842a782e289ac42ded, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.6300006
@@ -16994,6 +17004,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114354922306864920, guid: e54cd2edbda5128429860bb9f34ac383,
+        type: 2}
+      propertyPath: map_Bounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4417751063518130, guid: e54cd2edbda5128429860bb9f34ac383, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.6400007
@@ -45324,6 +45339,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114436226422871414, guid: ad6ccda5514252246ad286444c5157ff,
+        type: 2}
+      propertyPath: map_Bounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4197293535105156, guid: ad6ccda5514252246ad286444c5157ff, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.2454102

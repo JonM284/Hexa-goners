@@ -63,6 +63,8 @@ public class TempPlayerMovement : MonoBehaviour {
     public Player_Status player_type;
     public List<Transform> map_Bounds;
 
+    private Manager myManager;
+
     void Awake()
     {
         InitialSpeed = speed;
@@ -91,6 +93,7 @@ public class TempPlayerMovement : MonoBehaviour {
         anim = GetComponent<Animator>();
         GameCamera = Camera.main.GetComponent<CameraBehaviour>();
         source = GetComponent<AudioSource>();
+        myManager = Manager.manager_Instance;
         startingYPos = transform.position.y;
         maxStamina_amt = stamina;
         original_Stam_Regen_Mod = stam_Regen_modifier;
@@ -184,7 +187,7 @@ public class TempPlayerMovement : MonoBehaviour {
                     StartCoroutine(resetWrongImg());
                 }
                 /////////////THIS IS FOR BLOCKING
-                if (myPlayer.GetButtonDown("Block") && canBlock)
+                if (myPlayer.GetButtonDown("Block") && canBlock && !isPaused)
                 {
                     StartCoroutine(Block());
                 } else if (myPlayer.GetButtonDown("Block") && !canBlock)
@@ -512,7 +515,9 @@ public class TempPlayerMovement : MonoBehaviour {
         yield return new WaitForSeconds(2.7f);
         //StunParticles.Play();
         chargingParticles.Play();
-        canBlock = true;
+        if (!isPaused) {
+            canBlock = true;
+        }
         myHat.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         chargingParticles.Stop();
@@ -600,8 +605,8 @@ public class TempPlayerMovement : MonoBehaviour {
 
     IEnumerator StunPlayer()
     {
-      
 
+        myManager.GetComponent<Manager>().Block_Stat[attacker_ID - 1]++;
         speed = 0;
         source.clip = clips[2];
         source.PlayOneShot(clips[2]);
@@ -638,8 +643,9 @@ public class TempPlayerMovement : MonoBehaviour {
         GameCamera.ChromVoid();
         source.clip = clips[0];
         source.PlayOneShot(clips[0]);
-        
-        
+        if (attacker_ID != 0) {
+            myManager.GetComponent<Manager>().Attack_Stat[attacker_ID - 1]++;
+        }
         canMelee = false;
         lives--;
 

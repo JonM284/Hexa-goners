@@ -6,6 +6,11 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: Material
+    2100002: Brown
+    2100004: Black
+    2100006: Tan
+    2100008: Red
+    2100010: Light_Brown
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
