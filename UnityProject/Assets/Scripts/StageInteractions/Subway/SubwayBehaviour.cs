@@ -7,6 +7,7 @@ public class SubwayBehaviour : MonoBehaviour {
 
     private Animator anim;
     public GameObject[] warningIndicator;
+    public Animator mouse_Boss;
 
     private int animationNum, currentAnimationNum;
 	// Use this for initialization
@@ -35,6 +36,11 @@ public class SubwayBehaviour : MonoBehaviour {
             Debug.Log("Chose new number");
             StartCoroutine(WaitForNextAnimation());
         }
+    }
+
+    void Set_Appropriate_Animation(int anim_num)
+    {
+        mouse_Boss.SetInteger("Anim_Num", anim_num);
     }
 
     IEnumerator WaitForNextAnimation()

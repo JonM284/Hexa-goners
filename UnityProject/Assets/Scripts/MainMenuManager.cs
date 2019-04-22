@@ -12,13 +12,15 @@ public class MainMenuManager : MonoBehaviour {
     public GameObject vid_player_GameObject, myUI;
     private VideoPlayer myVideoPlayer;
     private float vidPlayerClipLength;
+    public float speedMod;
     public EventSystem ES;
     private GameObject storedSelected;
     public AudioClip[] AC;
     private AudioSource source;
     private bool has_Seen_Tutorial, skip_intro, has_Selected_Tut, has_Selected_Play;
 
-    
+    public GameObject[] Buttons;
+    public Transform[] original_Scales;
 
     private Player myPlayer;
     private int player_Num = 1;
@@ -41,6 +43,7 @@ public class MainMenuManager : MonoBehaviour {
         storedSelected = ES.firstSelectedGameObject;
         has_Seen_Tutorial = false;
         myPlayer = ReInput.players.GetPlayer(player_Num - 1);
+        
     }
 
     private void Update()
@@ -76,6 +79,8 @@ public class MainMenuManager : MonoBehaviour {
         {
             skip_intro = true;
         }
+
+        
     }
 
     private void OnLevelWasLoaded(int level)
@@ -109,6 +114,21 @@ public class MainMenuManager : MonoBehaviour {
         has_Selected_Tut = true;
     }
 
+    
+    public void Pulse_Current_Button(int button_ID)
+    {
+        float _pulse_X;
+        float _pulse_Y;
+        _pulse_X = Mathf.Abs(Mathf.Cos(2 * (Time.time * speedMod)));
+        _pulse_Y = Mathf.Cos((Time.time * speedMod) + original_Scales[button_ID].localScale.y);
+
+        Buttons[button_ID].transform.localScale = new Vector3(_pulse_X, _pulse_X, original_Scales[button_ID].localScale.z);
+    }
+
+    public void Reset_To_Original_Scale(int button_ID)
+    {
+        Buttons[button_ID].transform.localScale = original_Scales[button_ID].localScale;
+    }
 
     IEnumerator waitToStopVideo()
     {
@@ -165,28 +185,17 @@ public class MainMenuManager : MonoBehaviour {
     public void PlayGame()
     {
 
-        if (!has_Seen_Tutorial)
+        int level = Random.Range(0, 2);
+        switch (level)
         {
-            vid_player_GameObject.SetActive(true);
-            myUI.SetActive(false);
-            myVideoPlayer.Play();
-            has_Selected_Play = true;
-            return;
+            case 1:
+                SceneManager.LoadScene("PirateLevelMP");
+                break;
+            default:
+                SceneManager.LoadScene("LabLevelMP");
+                break;
         }
-        else
-        {
-            int level = Random.Range(0, 2);
-            switch (level)
-            {
-                case 1:
-                    SceneManager.LoadScene("PirateLevelMP");
-                    break;
-                default:
-                    SceneManager.LoadScene("LabLevelMP");
-                    break;
-            }
-        }
-        
+
     }
 
     IEnumerator leave_Scene()

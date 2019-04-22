@@ -448,10 +448,10 @@ public class Manager : MonoBehaviour
         
         endGameMenu.SetActive(true);
         pauseMenu.SetActive(false);
-        /*for (int i = 0; i < player_Stat_Panels.Length; i++)
+        for (int i = 0; i < player_Stat_Panels.Length; i++)
         {
             player_Stat_Panels[i].GetComponent<Stats_Manager>().Do_Stats();
-        }*/
+        }
 
     }
 

@@ -7,10 +7,38 @@ ModelImporter:
     100002: Plane
     100004: Plane_001
     100006: //RootNode
+    100008: Armature
+    100010: Bone
+    100012: Bone_001
+    100014: Bone_002
+    100016: Bone_003
+    100018: Bone_004
+    100020: Bone_005
+    100022: Bone_006
+    100024: Bone_008
+    100026: Bone_009
+    100028: Bone_011
+    100030: Bone_012
+    100032: L_Arm
+    100034: R_Arm
     400000: Cylinder
     400002: Plane
     400004: Plane_001
     400006: //RootNode
+    400008: Armature
+    400010: Bone
+    400012: Bone_001
+    400014: Bone_002
+    400016: Bone_003
+    400018: Bone_004
+    400020: Bone_005
+    400022: Bone_006
+    400024: Bone_008
+    400026: Bone_009
+    400028: Bone_011
+    400030: Bone_012
+    400032: L_Arm
+    400034: R_Arm
     2100000: unnamed
     2100002: BodyColor
     2100004: Mouth
@@ -28,7 +56,10 @@ ModelImporter:
     4300002: Plane
     4300004: Cylinder
     7400000: Default Take
+    7400002: Idle
+    7400004: Laughing
     9500000: //RootNode
+    13700000: Cylinder
   externalObjects: {}
   materials:
     importMaterials: 1
