@@ -9,7 +9,7 @@ public class Teleporter : MonoBehaviour {
     public Transform other_Tel_Pos;
     private bool canReset = true;
     private bool is_On_CoolDown = false;
-    public ParticleSystem teleporter, particles;
+    public ParticleSystem teleporter, particles, pop_particles;
     private ParticleSystem.EmissionModule module_Tel;
     private float originalEmissionRate;
     public Color redColor, blueColor;
@@ -17,6 +17,8 @@ public class Teleporter : MonoBehaviour {
     private Vector3 vel;
     private Rigidbody rb;
     private Material LightMat;
+    private AudioSource m_source;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -26,6 +28,7 @@ public class Teleporter : MonoBehaviour {
         originalEmissionRate = module_Tel.rateOverTime.constant;
         LightMat = GetComponent<MeshRenderer>().materials[0];
         LightMat.color = Color.green;
+        m_source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -51,6 +54,8 @@ public class Teleporter : MonoBehaviour {
 
     IEnumerator CoolDown()
     {
+        pop_particles.Play();
+        m_source.Play();
         module_Tel.rateOverTime = 0;
         particles.gameObject.SetActive(false);
         is_On_CoolDown = true;

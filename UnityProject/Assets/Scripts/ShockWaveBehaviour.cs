@@ -69,6 +69,7 @@ public class ShockWaveBehaviour : MonoBehaviour {
     IEnumerator turnAround()
     {
         game_Manager.GetComponent<Manager>().Reverse_Stat[playerNum - 1]++;
+        PlayerPrefs.SetInt("ReverseP" + playerNum, game_Manager.GetComponent<Manager>().Reverse_Stat[playerNum - 1]);
         reversalSound.Play();
         var main = blockParticles.main;
         main.startColor = myPlayersColor;

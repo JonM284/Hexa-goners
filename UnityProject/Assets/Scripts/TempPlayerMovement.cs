@@ -67,6 +67,9 @@ public class TempPlayerMovement : MonoBehaviour {
 
     void Awake()
     {
+        PlayerPrefs.SetInt("AttackP" + playerNum,0);
+        PlayerPrefs.SetInt("BlockP" + playerNum,0);
+        PlayerPrefs.SetInt("ReverseP" + playerNum,0);
         InitialSpeed = speed;
         bashingParticles.Stop();
         ExplosionParticles.Stop();
@@ -606,7 +609,7 @@ public class TempPlayerMovement : MonoBehaviour {
     IEnumerator StunPlayer()
     {
 
-        myManager.GetComponent<Manager>().Block_Stat[attacker_ID - 1]++;
+        
         speed = 0;
         source.clip = clips[2];
         source.PlayOneShot(clips[2]);
@@ -645,6 +648,7 @@ public class TempPlayerMovement : MonoBehaviour {
         source.PlayOneShot(clips[0]);
         if (attacker_ID != 0) {
             myManager.GetComponent<Manager>().Attack_Stat[attacker_ID - 1]++;
+            PlayerPrefs.SetInt("AttackP"+attacker_ID, myManager.GetComponent<Manager>().Attack_Stat[attacker_ID - 1]);
         }
         canMelee = false;
         lives--;
@@ -787,7 +791,7 @@ public class TempPlayerMovement : MonoBehaviour {
 
         if (other.gameObject.tag == "Block" && other.gameObject.name != "Player"+playerNum+"Block")
         {
-            StartCoroutine(StunPlayer());
+            //StartCoroutine(StunPlayer());
             attacker_ID = other.GetComponent<TileBehaviour>().Cp_Attack_Num;
             StartCoroutine(TakeHit(other.GetComponent<TileBehaviour>().currentColor));
         }
@@ -804,8 +808,10 @@ public class TempPlayerMovement : MonoBehaviour {
             StartCoroutine(TakeHit(other.GetComponent<TileBehaviour>().currentColor));
         }else if (other.gameObject.tag == "Block" && other.gameObject.name != "Player" + playerNum + "Block" && !hasTakenHit && canTakeHit && !isStunned)
         {
-            StartCoroutine(StunPlayer());
+            //StartCoroutine(StunPlayer());
             attacker_ID = other.GetComponent<TileBehaviour>().Cp_Attack_Num;
+            myManager.GetComponent<Manager>().Block_Stat[attacker_ID - 1]++;
+            PlayerPrefs.SetInt("BlockP" + attacker_ID, myManager.GetComponent<Manager>().Block_Stat[attacker_ID - 1]);
             StartCoroutine(TakeHit(other.GetComponent<TileBehaviour>().currentColor));
         }
 

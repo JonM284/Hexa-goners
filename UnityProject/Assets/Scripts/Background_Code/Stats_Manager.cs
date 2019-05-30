@@ -10,6 +10,7 @@ public class Stats_Manager : MonoBehaviour {
     public int[] player_Stats;
     public Text[] player_Stats_Text;
     private Manager gameManager;
+    public int assigned_Player_Num;
 
     private void Awake()
     {
@@ -34,9 +35,14 @@ public class Stats_Manager : MonoBehaviour {
 
     void Read_Player_Stats()
     {
-        player_Stats[0] = gameManager.GetComponent<Manager>().Attack_Stat[myPlayer.GetComponent<TempPlayerMovement>().playerNum - 1];
+        /*player_Stats[0] = gameManager.GetComponent<Manager>().Attack_Stat[myPlayer.GetComponent<TempPlayerMovement>().playerNum - 1];
         player_Stats[1] = gameManager.GetComponent<Manager>().Reverse_Stat[myPlayer.GetComponent<TempPlayerMovement>().playerNum - 1];
         player_Stats[2] = gameManager.GetComponent<Manager>().Block_Stat[myPlayer.GetComponent<TempPlayerMovement>().playerNum - 1];
+        */
+
+        player_Stats[0] = PlayerPrefs.GetInt("AttackP"+assigned_Player_Num);
+        player_Stats[1] = PlayerPrefs.GetInt("ReverseP" + assigned_Player_Num);
+        player_Stats[2] = PlayerPrefs.GetInt("BlockP" + assigned_Player_Num);
 
         for (int i = 0; i < 3; i++)
         {

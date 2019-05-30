@@ -4,18 +4,81 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Armature
+    100004: Bone
+    100006: Bone_001
+    100008: Bone_002
+    100010: Bone_005
+    100012: Bone_006
+    100014: Bone_007
+    100016: Bone_008
+    100018: Bone_009
+    100020: Bone_010
+    100022: Bone_011
+    100024: Bone_012
+    100026: Bone_014
+    100028: Bone_015
+    100030: Cube
+    100032: Cube_001
+    100034: Cube_002
+    100036: Cylinder
+    100038: Cylinder_001
+    100040: Head
+    100042: L_Hand
+    100044: Neck
+    100046: R_hand
     400000: //RootNode
+    400002: Armature
+    400004: Bone
+    400006: Bone_001
+    400008: Bone_002
+    400010: Bone_005
+    400012: Bone_006
+    400014: Bone_007
+    400016: Bone_008
+    400018: Bone_009
+    400020: Bone_010
+    400022: Bone_011
+    400024: Bone_012
+    400026: Bone_014
+    400028: Bone_015
+    400030: Cube
+    400032: Cube_001
+    400034: Cube_002
+    400036: Cylinder
+    400038: Cylinder_001
+    400040: Head
+    400042: L_Hand
+    400044: Neck
+    400046: R_hand
     2100000: Material
     2100002: Material_001
     2100004: Material_004
     2100006: Material_002
     2100008: Material_003
     2100010: Material_005
+    2100012: Material_009
+    2100014: Material_010
+    2100016: Material_008
+    2100018: Material_007
+    2100020: Material_006
+    2100022: unnamed
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
+    4300002: Cylinder_001
+    4300004: Cube_002
+    4300006: Cylinder
+    4300008: Cube_001
     7400000: Default Take
+    7400002: Idle_Scientist
+    7400004: Idle_Specimen
     9500000: //RootNode
+    13700000: Cube
+    13700002: Cube_001
+    13700004: Cube_002
+    13700006: Cylinder
+    13700008: Cylinder_001
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -44,7 +107,91 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle_Scientist
+      takeName: Idle_Scientist
+      firstFrame: -1
+      lastFrame: 174
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle_Specimen
+      takeName: Idle_Specimen
+      firstFrame: -1
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
